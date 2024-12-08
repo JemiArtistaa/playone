@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 const { defineConfig, devices } = require('@playwright/test');
 
 /**
@@ -34,8 +34,16 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'setup',
       use: { ...devices['Desktop Chrome'] },
+      testMatch: /.*\.setup\.js/,
+    },
+    { 
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'],
+        storageState:'./auth/loginauth.json'
+      },
+      dependencies:['setup'] 
     },
 
     // {
