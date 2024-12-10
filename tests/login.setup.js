@@ -1,6 +1,6 @@
 //@ts-check
 
-import { expect,test as setup } from "@playwright/test";
+import { test as setup } from "@playwright/test";
 
 setup('write login session data',async({page})=>{
 

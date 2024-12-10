@@ -8,7 +8,7 @@ test.beforeEach('move to desired page',async({page})=>{
 
 test('login state test', async({page})=>{
 
-    await expect(await page.locator('aside[class="oxd-sidepanel"]')).toBeVisible()
+    await expect(page.locator('aside[class="oxd-sidepanel"]')).toBeVisible()
     // https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index
 
 })
