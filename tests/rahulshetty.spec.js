@@ -13,7 +13,6 @@ test('rahulshetty website',async ({browser}) => {
     const productList =  await page.locator('[class="products"]>div>h4').all()
     console.log(productList)
 
-
     for(let item of productList){
 
         if(await  item.locator('h4').textContent()=='Capsicum'){
@@ -24,6 +23,18 @@ test('rahulshetty website',async ({browser}) => {
         }
         
     }
+
+    await page.pause()
+
+    await page.locator('[class="products"]>div').filter({hasText:'Capsicum'}).getByRole('button',{name:'ADD TO CART'}).click()
+    await page.locator('[class="product"]').filter({hasText:'Capsicum'}).getByRole('button',{name:'ADD TO CART'}).click()
+
+    const plist =  page.locator('[class="products"]')
+    await plist.locator('div')
+                .filter({hasText:'Capsicum'})
+                .getByRole('button',{name:'ADD TO CART'})
+                .click()
+
     await page.pause()
 
 })
